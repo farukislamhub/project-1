@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <div class="d-flex d-60">
+    <!-- Bootstrap Cards -->
+    <div class="card m-auto mt-5" style="width: 18rem;">
+      <img src="https://i.ibb.co/1sTmfh3/image.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">addiss</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <button class="btn btn-primary" onclick="addToCart('addiss')">Add to Cart</button>
+        <button class="btn btn-primary" onclick="removeFromCart('addiss')">Remove</button>
+      </div>
+    </div>
+    <div class="card m-auto mt-5" style="width: 18rem;">
+      <img src="https://i.ibb.co/1sTmfh3/image.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">addiss1</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <button class="btn btn-primary" onclick="addToCart('addiss1')">Add to Cart</button>
+        <button class="btn btn-primary" onclick="removeFromCart('addiss1')">Remove</button>
+      </div>
+    </div>
+    <div class="card m-auto mt-5" style="width: 18rem;">
+      <img src="https://i.ibb.co/1sTmfh3/image.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">addiss2</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <button class="btn btn-primary" onclick="addToCart('addiss2')">Add to Cart</button>
+        <button class="btn btn-primary" onclick="removeFromCart('addiss2')">Remove</button>
+      </div>
+    </div>
+    <!-- Add more Bootstrap Cards here -->
+
+  </div>
+
+  <!-- Shopping Cart -->
+  <div class="card m-auto mt-5" style="width: 18rem;">
+    <h5 class="card-header">Shopping Cart</h5>
+    <ul class="list-group list-group-flush" id="cartItems"></ul>
+  </div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Your custom JavaScript file -->
+  <script src="index.js"></script>
+
+  <script>
+    // Cart handling functions
+    var cart = [];
+
+    function addToCart(itemName) {
+      cart.push(itemName);
+      updateCart();
+    }
+
+    function removeFromCart(itemName) {
+      var index = cart.indexOf(itemName);
+      if (index !== -1) {
+        cart.splice(index, 1);
+      }
+      updateCart();
+    }
+
+    function updateCart() {
+      var cartItems = document.getElementById('cartItems');
+      // Clear the existing items
+      cartItems.innerHTML = '';
+
+      // Add the updated items
+      cart.forEach(function (item) {
+        var listItem = document.createElement('li');
+        listItem.className = 'list-group-item';
+        listItem.textContent = item;
+        cartItems.appendChild(listItem);
+      });
+    }
+  </script>
+
+</body>
+
+</html>
